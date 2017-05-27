@@ -1,0 +1,34 @@
+<html>
+<body>
+<img id="rainbow" src="https://louisfelixberthiaume.000webhostapp.com/rainbow.png" style="width:100%;height:100%;position:fixed;z-index:1;left:0;top:0;">
+<img id="steph" src="https://louisfelixberthiaume.000webhostapp.com/StephBellavance.png" style="display:none;">
+<img id="martin" src="https://louisfelixberthiaume.000webhostapp.com/Mcarli.png" style="display:none;">
+<img id="igor" src="https://louisfelixberthiaume.000webhostapp.com/Igor.png" style="display:none;">
+<canvas id="canvas" style="position:fixed;z-index:0;left:0;top:0;width:100%;height:100%;"></canvas>
+<script>
+c = document.getElementById("canvas");
+ctx = c.getContext('2d');
+c.width = document.body.clientWidth;
+c.height = document.body.clientHeight;
+canvasW = c.width;
+canvasH = c.height;
+steph = document.getElementById("steph");
+martin = document.getElementById("martin");
+igor = document.getElementById("igor");
+window.setInterval(draw, 1);
+function draw()
+{
+  ifvalue = Math.floor(Math.random()*3);
+  randx = Math.floor(Math.random()*(c.width+canvas.width/15)) - canvas.width/15;
+  randy = Math.floor(Math.random()*(c.height+canvas.height/15)) - canvas.height/15;
+  if (ifvalue === 0) {
+    ctx.drawImage(steph, randx, randy, canvas.width/15, canvas.height/15);
+  } else if (ifvalue === 1) {
+    ctx.drawImage(martin, randx, randy, canvas.width/15, canvas.height/15);
+  } else if (ifvalue === 2) {
+    ctx.drawImage(igor, randx, randy, canvas.width/15, canvas.height/15);
+  }
+}
+</script>
+</body>
+</html>

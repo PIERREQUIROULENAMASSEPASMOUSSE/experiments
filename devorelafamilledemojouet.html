@@ -1,0 +1,66 @@
+<html>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.js"></script>
+<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/addons/p5.sound.min.js"></script>
+<img id="face1" src="https://i.imgsafe.org/31af1ea6fb.png" style="display:none;">
+<img id="face2" src="https://i.imgsafe.org/31b1612bf2.png" style="display:none;">
+<canvas id="canvas"></canvas>
+<script>
+
+c = document.getElementById("canvas");
+ctx = c.getContext("2d");
+mic = new p5.AudioIn();
+mic.start();
+img = document.getElementById("face1");
+img1 = document.getElementById("face2");
+canvas.width = document.body.clientWidth;
+canvas.height = document.body.clientHeight;
+imgh = canvas.height/2
+imgw = canvas.width/2
+imgypos = canvas.height/2 - canvas.height/4
+imgxpos = canvas.width/2 - canvas.width/4
+img1h = (10*canvas.height)/100;
+img1w = (15*canvas.width)/100;
+img1ypos = ((imgypos + imgh - img1h) - img1h) - img1h/10
+img1xpos = (canvas.width/2 - img1w/2)
+canvasW = canvas.width;
+canvasH = canvas.height;
+var gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(1 / 6, 'orange');
+gradient.addColorStop(2 / 6, 'yellow');
+gradient.addColorStop(3 / 6, 'green');
+gradient.addColorStop(4 / 6, 'blue');
+gradient.addColorStop(5 / 6, 'indigo');
+gradient.addColorStop(6 / 6, 'violet');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+window.setInterval(function drawFaces() {
+vol = mic.getLevel();
+img1h = vol*canvas.height/2 + (10*canvas.height)/100;
+ctx.drawImage(img,imgxpos,imgypos, imgw, imgh);
+ctx.drawImage(img1,img1xpos,img1ypos, img1w, img1h);
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+var gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(1 / 6, 'orange');
+gradient.addColorStop(2 / 6, 'yellow');
+gradient.addColorStop(3 / 6, 'green');
+gradient.addColorStop(4 / 6, 'blue');
+gradient.addColorStop(5 / 6, 'indigo');
+gradient.addColorStop(6 / 6, 'violet');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.drawImage(img,imgxpos,imgypos, imgw, imgh);
+ctx.drawImage(img1,img1xpos,img1ypos, img1w, img1h);
+}, 1000/25)
+
+
+</script>
+<style>
+html, body {
+    overflow: hidden;
+}
+</style>
+</body>
+</html>
