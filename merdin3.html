@@ -1,0 +1,27 @@
+<html>
+<a id="saluge" onclick="set()">Tu veux écrire un livre? Clique ici et double-clique pour l'imprimer!</a>
+<script>
+window.ondblclick = function shit() {window.print();}
+var fulbert = 'salut'
+var text = document.getElementById('saluge')
+var words = ["Madame Martin,", "no vamos a la campignais aaaaaaaaaaaaiiiiiiiiiisssssssssss","j'ai même pas peur, j'ai quatre ans","bébé lily","benoit","si j'aurais","sylvain crote","je mange mon faché","gros badoure","crotte de bic pourrie","minininja","Barré mon yum"]
+var rand = Math.floor(Math.random()*words.length)
+function set() {
+thon = words[rand];
+rand = Math.floor(Math.random()*words.length);
+fulbert = fulbert + ' ' + thon
+text.innerHTML = fulbert
+window.setTimeout(set, 50)
+}
+</script>
+<style>
+a {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: yellow;
+  font-size: 150%;
+}
+html {
+  background-color: black;
+}
+</style>
+</html>

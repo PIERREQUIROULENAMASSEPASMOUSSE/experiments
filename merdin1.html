@@ -1,0 +1,46 @@
+<html>
+<body>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<script>
+if (annyang) {
+ annyang.setLanguage('fr-FR');
+  var commands = {
+    'la mêlée': function() {
+      location.href = 'https://louisfelixberthiaume.000webhostapp.com/devorelafamilledemojouet.html'
+    }
+  };
+  annyang.addCommands(commands);
+}
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        annyang.start();
+    }
+}
+</script>
+<a id="saluge" onclick="set()">Tu veux écrire un livre? Clique ici et double-clique pour l'imprimer!</a>
+<script>
+window.ondblclick = function shit() {window.print();}
+var fulbert = 'salut'
+var text = document.getElementById('saluge')
+var words = ["Tamalou?", "J'ai l'ébola!"]
+var rand = Math.floor(Math.random()*words.length)
+function set() {
+thon = words[rand];
+rand = Math.floor(Math.random()*words.length);
+fulbert = fulbert + ' ' + thon
+text.innerHTML = fulbert
+window.setTimeout(set, 50)
+}
+</script>
+<style>
+a {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: yellow;
+  font-size: 150%;
+}
+html {
+  background-color: black;
+}
+</style>
+</body>
+</html>
