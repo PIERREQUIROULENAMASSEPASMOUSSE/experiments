@@ -1,0 +1,33 @@
+<html style="overflow:hidden;position:fixed;cursor:url(https://pierrequiroulenamassepasmousse.github.io/experiments/dent.png), auto;">
+    <img src="http://i1104.photobucket.com/albums/h329/zorq1/Realistic-fire-animated-transparent-gif.gif" style="position:fixed;top:65%;left:0;width:100%;height:45%;"></img>
+    <canvas id="c" style="position:fixed;z-index:2;left:0;top:0;width:100%;height:100%;"></canvas>
+    <b id="text">Galettes Azim-Azim</b>
+    <img id="christian" src="https://pierrequiroulenamassepasmousse.github.io/experiments/Christianchauve.png" style="position:fixed;top:50%;left:50%;transform: translate(-50%, -50%);display:none;">
+    <img id="cheveux" src="https://pierrequiroulenamassepasmousse.github.io/experiments/Christiancheveux.png" style="display:none;">
+    <script>
+        c = document.getElementById("c");
+        ctx = c.getContext('2d');
+        cheveux = document.getElementById("cheveux");
+        c.width = document.body.clientWidth;
+        c.height = document.body.clientHeight;
+        canvasW = c.width;
+        canvasH = c.height;
+        fulbert = 'Galettes Azim-Azim'
+        w = c.width/1.25;
+        h = c.height/2;
+        window.onload = set;
+        ctx.drawImage(cheveux, c.width/2-cheveux.width, c.height/2-cheveux.height, w/3,h*2)
+        document.body.addEventListener("mousemove", function (e) {
+          ctx.clearRect(e.clientX - c.width/40, e.clientY - c.height/40, c.width/20, c.height/20)
+        })
+        function set() {
+          christian.style.display = 'initial';
+          christian.style.width = w;
+          christian.style.width = h;
+          thon = 'Galettes Azim-Azim';
+          fulbert = fulbert + ' ' + thon;
+          document.getElementById('text').innerHTML = fulbert;
+          window.setTimeout(set, 10);
+        }
+    </script>
+</html>
