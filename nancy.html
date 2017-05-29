@@ -20,6 +20,9 @@
         document.body.addEventListener("mousemove", function (e) {
           ctx.clearRect(e.clientX - c.width/175, e.clientY - c.height/175, c.width/20, c.height/20)
         })
+        document.body.addEventListener("touchmove", function (e) {
+          ctx.clearRect(e.clientX - c.width/175, e.clientY - c.height/175, c.width/20, c.height/20)
+        })
         function set() {
           christian.style.display = 'initial';
           christian.style.width = w;
