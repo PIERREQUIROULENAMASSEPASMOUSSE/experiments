@@ -1,0 +1,63 @@
+<html style="overflow:hidden;position:fixed;">
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="apple-touch-icon" sizes="57x57" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+<body>
+<title>Aidons Caillou</title>
+<button onclick="changetexture('https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/Cookie-Download-PNG.png')" style="position:fixed;z-index:3;top:auto;left:auto;">Cookie</button>
+<br>
+<button onclick="changetexture('https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/blond%20(1).png')" style="position:fixed;z-index:3;top:auto;left:auto;">Blond</button>
+<br>
+<button onclick="changetexture('https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/roux%20(1).png')" style="position:fixed;z-index:3;top:auto;left:auto;">Roux</button>
+<br>
+<button onclick="changetexture('https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/BodyFur_Texture_2.png')" style="position:fixed;z-index:3;top:auto;left:auto;">Brun</button>
+<img id="caillou" src="http://vignette3.wikia.nocookie.net/caillou/images/5/58/Caillou-xl-pictures-34.png/revision/latest?cb=20130912063224" style="position:fixed;z-index:1;left:50%;top:100%;transform: translate(-50%, -50%);width:120%;height:185%;">
+<img id="cookie" src="https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/Cookie-Download-PNG.png" style="display:none;">
+<canvas id="canvas" style="position:fixed;z-index:2;left:0;top:0;"></canvas>
+    
+<script>
+    c = document.getElementById("canvas");
+    ctx = c.getContext('2d');
+    cookie = document.getElementById("cookie");
+    texture = cookie;
+    c.width = document.body.clientWidth;
+    c.height = document.body.clientHeight;
+    canvasW = c.width;
+    canvasH = c.height;
+    window.onload = notdrawing;
+     var texturer = function (e) {
+        mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft
+        mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop
+        ctx.drawImage(texture,mouseX,mouseY, c.width/40, c.width/40);
+    }
+     function changetexture(source) {
+       texture.src = source;
+     }
+    function drawing() {
+      document.body.addEventListener("mousemove", texturer);
+      document.body.addEventListener("touchmove", texturer);
+      document.body.addEventListener("mouseup", notdrawing);
+      document.body.addEventListener("touchend", notdrawing);
+    }
+    function notdrawing() {
+     document.body.removeEventListener("mousemove", texturer);
+     document.body.removeEventListener("touchmove", texturer);
+     document.body.addEventListener("mousedown", drawing);
+     document.body.addEventListener("touchstart", drawing);
+    }
+</script>
+</body>
+</html>
