@@ -1,0 +1,18 @@
+<html style="cursor:none;background:url('https://pierrequiroulenamassepasmousse.github.io/experiments/galaxy.jpg');background-size:cover;">
+<title>THOMAS</title>
+  <body>
+    <img id="thomas" src="https://pierrequiroulenamassepasmousse.github.io/experiments/kevin.png" style="display:none">
+    <canvas id="canvas" style="width:150%;height:150%;position:fixed;left:-30%;top:-30%;"></canvas>
+    <script>
+     c = document.getElementById("canvas");
+     ctx = c.getContext('2d');
+     c.width = document.body.clientWidth;
+     c.height = document.body.clientHeight;
+     canvasW = c.width;
+     canvasH = c.height;
+            document.body.addEventListener("mousemove", function (e) {
+             ctx.drawImage(thomas, e.clientX, e.clientY, canvas.width/15, canvas.width/15);
+        });
+    </script>
+  </body>
+</html>
