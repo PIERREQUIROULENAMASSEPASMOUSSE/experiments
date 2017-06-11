@@ -88,14 +88,14 @@ function init() {
 	earth.onload = function() {
 		--unloaded;
 	};
-	earth.src = 'http://i.imgur.com/Bw3ERw9.png';
+	earth.src = 'https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/yannick.png';
 
 	var moon = new Image();
 	++unloaded;
 	moon.onload = function() {
 		--unloaded;
 	};
-	moon.src = 'http://i.imgur.com/Hncv3PN.png';
+	moon.src = 'https://raw.githubusercontent.com/PIERREQUIROULENAMASSEPASMOUSSE/experiments/master/martinboule.png';
 
 	var hammer = new Hammer(document.getElementById("canvas"), {prevent_default:true});
 	addEvent("mousemove", document.getElementById('canvas'), onMove);
