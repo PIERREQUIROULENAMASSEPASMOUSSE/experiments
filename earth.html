@@ -71,11 +71,11 @@ function init() {
 	var yLast = [];
 	var ax = [];
 	var ay = [];
-	var nParts = 1;
+	var nParts = 40;
 	var tStep = 1.0/60.0;
 	var perimIters = 5; //number of perimiter fixing iterations to do - more means closer to perfect solidity
-	var relaxFactor = 0.1; //1.0 would mean perfect solidity (no blobbiness) if it worked (unstable)
-	var gravityForce = -20;
+	var relaxFactor = 0.5; //1.0 would mean perfect solidity (no blobbiness) if it worked (unstable)
+	var gravityForce = -8.5;
 	var rad = 10.0;
 	var blobAreaTarget;
 	var sideLength;
