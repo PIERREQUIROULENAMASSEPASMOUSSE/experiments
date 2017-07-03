@@ -16,7 +16,7 @@
      window.ondblclick = function() {
        var link = document.createElement('a');
        link.href = c.toDataURL('image/png', 1.0);
-       link.download = 'chefdoeuvre.png';
+       link.download = 'chefdoeuvre_no' + Math.random()*9038249058904983 + '.png';
        document.body.appendChild(link);
        link.click();  
      }
