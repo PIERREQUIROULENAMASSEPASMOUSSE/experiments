@@ -1,7 +1,8 @@
-<html style="cursor:none;background:url('https://pierrequiroulenamassepasmousse.github.io/experiments/galaxy.jpg');background-size:cover;">
+<html style="cursor:none;);background-size:cover;">
 <title>THOMAS</title>
   <body>
     <img id="thomas" src="https://pierrequiroulenamassepasmousse.github.io/experiments/Christian_B_guin.png" style="display:none">
+    <img id="bg" src="https://pierrequiroulenamassepasmousse.github.io/experiments/galaxy.jpg" style="display:none">
     <canvas id="canvas" style="width:150%;height:150%;position:fixed;left:-30%;top:-30%;"></canvas>
     <script>
      c = document.getElementById("canvas");
@@ -10,6 +11,16 @@
      c.height = document.body.clientHeight;
      canvasW = c.width;
      canvasH = c.height;
+     bg = document.getElementById("bg");
+     thomas = document.getElementById("thomas");
+     window.ondblclick = function() {
+       var link = document.createElement('a');
+       link.href = c.toDataURL('image/png', 1.0);
+       link.download = 'chefdoeuvre.png';
+       document.body.appendChild(link);
+       link.click();  
+     }
+     ctx.drawImage(thomas, 0, 0, canvas.width, canvas.width);
             document.body.addEventListener("mousemove", function (e) {
              ctx.drawImage(thomas, e.clientX, e.clientY, canvas.width/15, canvas.width/15);
         });
